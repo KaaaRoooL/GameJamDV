@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object : MonoBehaviour
+public class GoodObject : MonoBehaviour
 {
+    public int points;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,10 @@ public class Object : MonoBehaviour
 
 
     void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("Ghost.OnTriggerEnter");
-        if(other.CompareTag("Player")){           
+        if(other.CompareTag("Player")){
+            Score.instance.AddPoints(points);         
             Destroy(gameObject);      
         }
+
     }
 }

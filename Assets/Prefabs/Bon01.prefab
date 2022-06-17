@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7447364317571841762}
   - component: {fileID: 3801407560073884522}
   - component: {fileID: 3638484807880528866}
-  - component: {fileID: 2621696006672715}
   - component: {fileID: 3220699556649770600}
+  - component: {fileID: -4690254254174777439}
   m_Layer: 0
   m_Name: Bon01
   m_TagString: Bones
@@ -106,18 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2621696006672715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037788428959475787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a592e88bcad4f55448854e4458a457c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &3220699556649770600
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +122,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.1787147, y: 0.03249377}
   m_Size: {x: 5.1274567, y: 5.1274567}
   m_Direction: 0
+--- !u!114 &-4690254254174777439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037788428959475787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c64c09eed612548bbd3b1618e44fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 10

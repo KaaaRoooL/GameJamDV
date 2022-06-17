@@ -10,9 +10,8 @@ public class Pig : MonoBehaviour
 
 
     float maxLimit = 8;
-    private float jumpForce = 6.5f;
+    //private float jumpForce = 6.5f;
 
-    protected Collider2D collider;
 
     protected Rigidbody2D rb;
     Animator animator;
@@ -20,7 +19,6 @@ public class Pig : MonoBehaviour
     
     void Start()
     {
-        collider = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -29,7 +27,7 @@ public class Pig : MonoBehaviour
     void Update()
     { 
       
-        if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= -maxLimit) {      
+        if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && transform.position.x >= -maxLimit) {      
             animator.SetBool("Walk", true); 
             transform.localScale = new Vector3(1, 1, 1); 
             Vector3 newPosition = transform.position;         
@@ -37,7 +35,7 @@ public class Pig : MonoBehaviour
             transform.position = newPosition; 
                 
         }
-        if (Input.GetKey(KeyCode.RightArrow)) {   
+            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))) {   
             animator.SetBool("Walk", true);
             transform.localScale = new Vector3(-1, 1, 1);           
             Vector3 newPosition = transform.position;         
@@ -50,9 +48,10 @@ public class Pig : MonoBehaviour
             transform.position = newPosition;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        /*if(Input.GetKeyDown(KeyCode.Space)) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);  
-        }
+        }*/
     }
+    
 }
 
