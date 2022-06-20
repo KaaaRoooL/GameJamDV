@@ -10,20 +10,47 @@ public class GameManager : MonoBehaviour
     public List<GameObject> objects = new List<GameObject>();
 
     public static GameManager instance;
+    private AudioSource audioSource;
+
+    public AudioClip sceneSound;
+    //public GameObject imageGameOver;
+
+    private bool gameOver;
+
+    public GameObject pausePanel;
+
+     public GameObject gameOverPanel;
 
     
-   
+    
+    void Awake() {
+        instance = this;
+    }
+    
     void Start()
     {
-          
+        audioSource = GetComponent<AudioSource>();
+        playAudioClip(sceneSound);
+        gameOver = false;
     }
 
     
     void Update()
     {
+        if(GameManager.instance.IsGameOver()){
+            return;
+        }
         if(Random.value <= 0.001f){
             Spawn();        
         }
+
+
+        if(Input.GetKey(KeyCode.P) || Input.GetKey(KeyCode.Escape)) {      
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;                
+        }
+
+        
     }
 
    private void Spawn() {
@@ -45,13 +72,23 @@ public class GameManager : MonoBehaviour
         } 
     }
 
-    public void ClearList(){
-        for(int i = 0 ; i < objects.Count; i++){
-            objects.Remove(objects[i]);
-        }
-        
+    public void playAudioClip(AudioClip clip){
+        audioSource.PlayOneShot(clip);
     }
 
 
+
+    public void GameOver(){      
+        gameOver = true;
+        gameOverPanel.SetActive(true);  
+    }
+
+    public bool IsGameOver(){
+        return gameOver;
+    }
+
+
+
     
+ 
 }

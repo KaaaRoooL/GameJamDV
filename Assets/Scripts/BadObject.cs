@@ -5,6 +5,8 @@ using UnityEngine;
 public class BadObject : MonoBehaviour
 {
     public int points;
+
+    public AudioClip errorSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class BadObject : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
+            GameManager.instance.playAudioClip(errorSound);
             Score.instance.RemovePoints(points);         
             Destroy(gameObject);      
         }

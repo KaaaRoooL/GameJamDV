@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class Pig : MonoBehaviour
 {
-
-
     private float speed = 8f;
-
-
     float maxLimit = 8;
     //private float jumpForce = 6.5f;
-
-
     protected Rigidbody2D rb;
     Animator animator;
-
-    
+   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
-
     void Update()
-    { 
-      
+    {   
+        if(GameManager.instance.IsGameOver()){
+            return;
+        }     
         if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && transform.position.x >= -maxLimit) {      
             animator.SetBool("Walk", true); 
             transform.localScale = new Vector3(1, 1, 1); 
@@ -35,7 +30,7 @@ public class Pig : MonoBehaviour
             transform.position = newPosition; 
                 
         }
-            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))) {   
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {   
             animator.SetBool("Walk", true);
             transform.localScale = new Vector3(-1, 1, 1);           
             Vector3 newPosition = transform.position;         
@@ -47,6 +42,8 @@ public class Pig : MonoBehaviour
             } 
             transform.position = newPosition;
         }
+
+        
 
         /*if(Input.GetKeyDown(KeyCode.Space)) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);  

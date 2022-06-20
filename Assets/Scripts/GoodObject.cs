@@ -5,6 +5,8 @@ using UnityEngine;
 public class GoodObject : MonoBehaviour
 {
     public int points;
+
+    public AudioClip eatSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,10 @@ public class GoodObject : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D other){
+    void OnTriggerEnter2D(Collider2D other){      
         if(other.CompareTag("Player")){
-            Score.instance.AddPoints(points);         
+            Score.instance.AddPoints(points);
+            GameManager.instance.playAudioClip(eatSound);
             Destroy(gameObject);      
         }
 

@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 5
+  eatSound: {fileID: 8300000, guid: 88100569838ce8747a138aa3cc75c79d, type: 3}
 --- !u!70 &2507444682628875619
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

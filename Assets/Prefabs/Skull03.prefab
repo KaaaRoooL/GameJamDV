@@ -135,3 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 20
+  errorSound: {fileID: 8300000, guid: 1dc7afd1ece578b419017cb69606edb1, type: 3}

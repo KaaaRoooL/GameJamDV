@@ -11,6 +11,7 @@ public class TimeController : MonoBehaviour
 
     private float rest;
     private bool ready;
+   
     private void Awake()
     {
         rest = (min * 60) + seg;
@@ -22,7 +23,8 @@ public class TimeController : MonoBehaviour
         if(ready){
             rest -= Time.deltaTime;
             if(rest < 1){
-                ready = false;   
+                ready = false;
+                GameManager.instance.GameOver();            
             }
             int tempMin = Mathf.FloorToInt(rest / 60);
             int tempSeg = Mathf.FloorToInt(rest % 60);
