@@ -4,25 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //public GameObject prefab;
     private Vector3 spawnPoint;
-
     public List<GameObject> objects = new List<GameObject>();
-
     public static GameManager instance;
     private AudioSource audioSource;
-
     public AudioClip sceneSound;
-    //public GameObject imageGameOver;
-
     private bool gameOver;
-
     public GameObject pausePanel;
+    public GameObject gameOverPanel;
 
-     public GameObject gameOverPanel;
-
-    
-    
     void Awake() {
         instance = this;
     }
@@ -33,24 +23,19 @@ public class GameManager : MonoBehaviour
         playAudioClip(sceneSound);
         gameOver = false;
     }
-
-    
+  
     void Update()
     {
         if(GameManager.instance.IsGameOver()){
             return;
         }
-        if(Random.value <= 0.001f){
+        if(Random.value <= Time.deltaTime*2){
             Spawn();        
         }
-
-
         if(Input.GetKey(KeyCode.P) || Input.GetKey(KeyCode.Escape)) {      
             pausePanel.SetActive(true);
             Time.timeScale = 0;                
-        }
-
-        
+        }      
     }
 
    private void Spawn() {
@@ -75,8 +60,6 @@ public class GameManager : MonoBehaviour
     public void playAudioClip(AudioClip clip){
         audioSource.PlayOneShot(clip);
     }
-
-
 
     public void GameOver(){      
         gameOver = true;

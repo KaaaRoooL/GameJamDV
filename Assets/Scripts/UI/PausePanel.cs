@@ -5,18 +5,10 @@ using UnityEngine;
 
 public class PausePanel : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void OnEnable() {
         Time.timeScale = 0;
@@ -32,7 +24,6 @@ public class PausePanel : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    
     public void ButtonMainmenuOnClick() {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");

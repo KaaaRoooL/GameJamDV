@@ -24,7 +24,7 @@ public class TimeController : MonoBehaviour
             rest -= Time.deltaTime;
             if(rest < 1){
                 ready = false;
-                GameManager.instance.GameOver();            
+                GameManager.instance.GameOver();           
             }
             int tempMin = Mathf.FloorToInt(rest / 60);
             int tempSeg = Mathf.FloorToInt(rest % 60);

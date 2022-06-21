@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Pig : MonoBehaviour
 {
-    private float speed = 8f;
+    private float speed = 7.5f;
     float maxLimit = 8;
-    //private float jumpForce = 6.5f;
     protected Rigidbody2D rb;
     Animator animator;
    
@@ -29,26 +28,19 @@ public class Pig : MonoBehaviour
             newPosition += Vector3.left * speed * Time.deltaTime; 
             transform.position = newPosition; 
                 
-        }
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {   
+        } else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {   
             animator.SetBool("Walk", true);
             transform.localScale = new Vector3(-1, 1, 1);           
             Vector3 newPosition = transform.position;         
             newPosition += Vector3.right * speed * Time.deltaTime;
             
-
             if(newPosition.x >= maxLimit){
                 newPosition.x = maxLimit;
             } 
             transform.position = newPosition;
+        } else {
+            animator.SetBool("Walk", false);
         }
-
-        
-
-        /*if(Input.GetKeyDown(KeyCode.Space)) {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);  
-        }*/
-    }
-    
+    }   
 }
 

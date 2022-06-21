@@ -5,19 +5,6 @@ using UnityEngine;
 
 public class GameOverPanel : MonoBehaviour
 {
-   
-    void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void OnEnable() {
         Time.timeScale = 0;
     }
